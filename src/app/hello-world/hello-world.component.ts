@@ -12,12 +12,9 @@ import { MessageService } from '../message.service';
 })
 export class HelloWorldComponent implements OnInit {
 
-    selectedHero: Hero;
-
     heroes: Hero[];
 
-    constructor(private heroService: HeroService, private messageService: 
-        MessageService) { }
+    constructor(private heroService: HeroService) { }
 
     ngOnInit(): void {
         this.getHeroes();
@@ -26,9 +23,5 @@ export class HelloWorldComponent implements OnInit {
     getHeroes(): void {
         this.heroService.getHeroes()
             .subscribe(heroes => this.heroes = heroes);
-    }
-
-    onSelect(hero: Hero): void {
-        this.selectedHero = hero;
     }
 }
